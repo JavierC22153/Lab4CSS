@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taza de Café Responsiva</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #d3b38c;
+            flex-direction: column;
+            margin: 0;
+        }
+
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .taza {
+            width: 20vw;  
+            height: 15vh;  
+            background: #ffffff;
+            border-radius: 0 0 50% 50%;
+            border: 0.3vw solid #999;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            position: relative;
+            max-width: 200px;
+            max-height: 150px;
+        }
+
+        .taza::before {
+            content: "";
+            width: 4vw;
+            height: 6vh;
+            border: 0.8vw solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: -2.9vw;
+            top: 3vh;
+            background: transparent;
+            clip-path: inset(0 40% 0 0);
+        }
+
+        .base {
+            width: 22vw;  
+            height: 2vh;  
+            background: white;
+            border-radius: 15px;
+            border: 0.3vw solid #888;
+            margin-top: -0.5vh;
+            max-width: 220px;
+            max-height: 20px;
+        }
+
+        .taza .cafe {
+            width: 100%;
+            height: 30%;
+            background: #6b3e26;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .humo {
+            display: flex;
+            justify-content: center;
+            gap: 1vw;
+            margin-bottom: -2vh;
+        }
+
+        .humo span {
+            width: 1.5vw;
+            height: 5vh;
+            background: gray;
+            border-radius: 50%;
+            animation: subir 3s infinite alternate ease-in-out;
+            clip-path: ellipse(50% 40% at center);
+        }
+
+        .humo span:nth-child(1) { animation-duration: 2.5s; }
+        .humo span:nth-child(2) { animation-duration: 3s; }
+        .humo span:nth-child(3) { animation-duration: 2s; }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-4vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .cuchara {
+            width: 0.8vw;
+            height: 10vh;
+            background: #bbbbbb;
+            border-radius: 20px;
+            position: absolute;
+            right: -10%;
+            top: -90%;
+            transform: rotate(55deg);
+            z-index: 1;
+        }
+
+        .cuchara::before {
+            content: "";
+            width: 2.4vw;
+            height: 2.5vh;
+            background: #6b3e26;
+            border-radius: 50%;
+            position: absolute;
+            top: 10vh;
+            left: -0.5vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="humo">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="taza">
+            <div class="cafe"></div>
+            <div class="cuchara"></div>
+        </div>
+        <div class="base"></div>
+    </div>
+</body>
+</html>
